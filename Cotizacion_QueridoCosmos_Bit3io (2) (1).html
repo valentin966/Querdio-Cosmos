@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización Web + SEO — Querido Cosmos | Bit3io</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --bit3-green: #00C896;
+            --bit3-green-light: #00E8AD;
+            --bit3-purple: #8B5CF6;
+            --bit3-cyan: #06B6D4;
+            --bit3-dark: #0A0A0B;
+            --bit3-bg: #1a1a1f;
+            --text-light: #ffffff;
+            --text-muted: #a0a0a8;
+            --text-subtle: #6a6a72;
+            --glass-border: rgba(255,255,255,0.06);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Bai Jamjuree', sans-serif;
+            background-color: var(--bit3-bg);
+            color: var(--text-light);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        .bg-wrapper { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; overflow: hidden; }
+        .bg-noise { position: absolute; width: 100%; height: 100%; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); }
+        .bg-gradient { position: absolute; width: 100%; height: 100%; background: radial-gradient(ellipse 100% 80% at 10% 10%, rgba(0,200,150,0.08) 0%, transparent 50%), radial-gradient(ellipse 80% 60% at 90% 90%, rgba(139,92,246,0.06) 0%, transparent 50%), radial-gradient(ellipse 60% 40% at 50% 50%, rgba(6,182,212,0.04) 0%, transparent 40%); }
+        .floating-orb { position: absolute; border-radius: 50%; filter: blur(120px); opacity: 0.4; pointer-events: none; }
+        .orb-1 { width: 450px; height: 450px; background: linear-gradient(135deg, var(--bit3-green), var(--bit3-cyan)); top: -200px; left: -100px; animation: orbFloat1 25s ease-in-out infinite; }
+        .orb-2 { width: 350px; height: 350px; background: linear-gradient(135deg, var(--bit3-purple), var(--bit3-cyan)); bottom: -150px; right: -80px; animation: orbFloat2 30s ease-in-out infinite; }
+        @keyframes orbFloat1 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(20px,60px); } }
+        @keyframes orbFloat2 { 0%, 100% { transform: translate(0,0); } 50% { transform: translate(-30px,-40px); } }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 60px 40px; position: relative; }
+
+        .glass {
+            background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px; position: relative; overflow: hidden;
+        }
+        .glass::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(0,200,150,0.25), transparent); }
+
+        /* ═══ HEADER ═══ */
+        .header { padding: 40px; margin-bottom: 40px; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; animation: fadeSlideUp 0.8s ease-out; }
+        .company-info h1 { font-size: 1.8rem; font-weight: 700; background: linear-gradient(135deg, #fff 0%, var(--bit3-green) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 4px; }
+        .company-info .tagline { font-size: 0.82rem; color: var(--text-muted); }
+        .header-right { text-align: right; }
+        .quote-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: linear-gradient(135deg, rgba(0,200,150,0.15), rgba(139,92,246,0.1)); border: 1px solid rgba(0,200,150,0.3); border-radius: 50px; margin-bottom: 15px; }
+        .quote-badge i { color: var(--bit3-green); }
+        .quote-badge span { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; background: linear-gradient(90deg, var(--bit3-green), var(--bit3-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .client-name { font-size: 1.3rem; font-weight: 700; color: #fff; margin-bottom: 3px; }
+        .client-sub { font-size: 0.82rem; color: var(--bit3-green); font-weight: 500; margin-bottom: 12px; }
+        .meta-info { display: flex; flex-direction: column; gap: 4px; }
+        .meta-item { font-size: 0.75rem; color: var(--text-subtle); display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+        .meta-item i { font-size: 0.65rem; color: var(--bit3-green); opacity: 0.7; }
+
+        /* ═══ SECTION TITLE ═══ */
+        .section-title { text-align: center; margin: 50px 0 35px; animation: fadeSlideUp 0.8s ease-out 0.2s both; }
+        .section-title h2 { font-size: 1.3rem; font-weight: 700; color: #fff; text-transform: uppercase; letter-spacing: 3px; }
+        .section-title-line { width: 70px; height: 3px; margin: 18px auto 0; background: linear-gradient(90deg, var(--bit3-green), var(--bit3-purple)); border-radius: 3px; position: relative; overflow: hidden; }
+        .section-title-line::after { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent); animation: lineShine 3s ease-in-out infinite; }
+        @keyframes lineShine { 0% { left: -100%; } 50%, 100% { left: 100%; } }
+
+        /* ═══ INTRO ═══ */
+        .intro-section { padding: 40px; margin-bottom: 40px; animation: fadeSlideUp 0.8s ease-out 0.1s both; }
+        .intro-section h3 { font-size: 1.05rem; font-weight: 600; color: var(--bit3-green); margin-bottom: 18px; display: flex; align-items: center; gap: 10px; }
+        .intro-section p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.85; margin-bottom: 12px; }
+        .intro-highlight { color: var(--bit3-green); font-weight: 600; }
+
+        /* ═══ PROBLEM ═══ */
+        .problem-section { padding: 40px; margin-bottom: 40px; animation: fadeSlideUp 0.8s ease-out 0.2s both; }
+        .problem-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .problem-item { padding: 25px; text-align: center; background: rgba(0,200,150,0.03); border-radius: 16px; border: 1px solid rgba(0,200,150,0.06); transition: all 0.3s ease; }
+        .problem-item:hover { background: rgba(0,200,150,0.06); transform: translateY(-3px); }
+        .problem-icon { width: 50px; height: 50px; margin: 0 auto 15px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,200,150,0.15), rgba(139,92,246,0.1)); border-radius: 14px; }
+        .problem-icon i { font-size: 1.2rem; color: var(--bit3-green); }
+        .problem-item h4 { font-size: 0.9rem; font-weight: 600; color: #fff; margin-bottom: 8px; }
+        .problem-item p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+        /* ═══ PLAN CARD ═══ */
+        .plan-section { padding: 40px; margin-bottom: 40px; animation: fadeSlideUp 0.8s ease-out 0.3s both; border: 1px solid rgba(0,200,150,0.15); }
+        .plan-header { text-align: center; margin-bottom: 30px; }
+        .plan-header h3 { font-size: 1.2rem; font-weight: 700; color: #fff; margin-bottom: 5px; }
+        .plan-header .plan-sub { font-size: 0.82rem; color: var(--text-muted); }
+        .plan-price-box { text-align: center; margin-bottom: 30px; }
+        .plan-price { font-size: 2.5rem; font-weight: 800; background: linear-gradient(135deg, var(--bit3-green), var(--bit3-green-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .plan-period { font-size: 0.78rem; color: var(--text-subtle); margin-top: 5px; }
+
+        .plan-block { margin-bottom: 30px; }
+        .plan-block-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .plan-block-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 10px; flex-shrink: 0; }
+        .plan-block-icon i { font-size: 1rem; }
+        .plan-block-icon.green { background: linear-gradient(135deg, rgba(0,200,150,0.15), rgba(0,200,150,0.05)); }
+        .plan-block-icon.green i { color: var(--bit3-green); }
+        .plan-block-icon.purple { background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(139,92,246,0.05)); }
+        .plan-block-icon.purple i { color: var(--bit3-purple); }
+        .plan-block-icon.cyan { background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(6,182,212,0.05)); }
+        .plan-block-icon.cyan i { color: var(--bit3-cyan); }
+        .plan-block-title h4 { font-size: 0.95rem; font-weight: 600; color: #fff; margin-bottom: 2px; }
+        .plan-block-title p { font-size: 0.72rem; color: var(--text-subtle); }
+
+        .plan-features { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .plan-features.single-col { grid-template-columns: 1fr; }
+        .plan-features li { font-size: 0.8rem; color: var(--text-muted); padding-left: 22px; position: relative; line-height: 1.6; }
+        .plan-features li::before { content: '✓'; position: absolute; left: 0; font-weight: bold; }
+        .plan-features.green li::before { color: var(--bit3-green); }
+        .plan-features.purple li::before { color: var(--bit3-purple); }
+        .plan-features.cyan li::before { color: var(--bit3-cyan); }
+        .plan-features li strong { color: #fff; }
+
+        /* ═══ FACTURA ═══ */
+        .factura-note { text-align: center; padding: 15px; margin-bottom: 40px; background: rgba(139,92,246,0.06); border: 1px solid rgba(139,92,246,0.15); border-radius: 12px; }
+        .factura-note p { font-size: 0.78rem; color: var(--bit3-purple); display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; }
+
+        /* ═══ CONDITIONS ═══ */
+        .conditions-section { padding: 40px; margin-bottom: 40px; animation: fadeSlideUp 0.8s ease-out 0.5s both; }
+        .conditions-section h3 { font-size: 1.1rem; font-weight: 600; color: #fff; margin-bottom: 25px; text-align: center; }
+        .conditions-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .condition-card { padding: 20px; background: rgba(255,255,255,0.02); border-radius: 14px; }
+        .condition-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+        .condition-icon { width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,200,150,0.15), rgba(139,92,246,0.1)); border-radius: 10px; }
+        .condition-icon i { color: var(--bit3-green); }
+        .condition-card h4 { font-size: 0.9rem; font-weight: 600; color: #fff; }
+        .condition-card p { font-size: 0.8rem; color: var(--text-muted); line-height: 1.6; }
+        .condition-card strong { color: var(--bit3-green); }
+
+        /* ═══ DISCOUNT GRID ═══ */
+        .discount-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; }
+        .discount-card { padding: 18px; border-radius: 14px; text-align: center; }
+        .discount-pct { font-size: 2rem; font-weight: 800; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .discount-label { font-size: 0.72rem; color: var(--text-muted); margin: 6px 0 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .discount-period { font-size: 0.82rem; color: #fff; font-weight: 600; }
+        .discount-price { font-size: 1.1rem; font-weight: 700; margin-top: 8px; }
+
+        /* ═══ CLOSING ═══ */
+        .closing-section { padding: 45px; margin-bottom: 40px; text-align: center; animation: fadeSlideUp 0.8s ease-out 0.6s both; }
+        .closing-icon { width: 70px; height: 70px; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, rgba(0,200,150,0.2), rgba(139,92,246,0.15)); border-radius: 50%; position: relative; }
+        .closing-icon::before { content: ''; position: absolute; top: -5px; left: -5px; right: -5px; bottom: -5px; border-radius: 50%; border: 2px solid transparent; background: linear-gradient(135deg, var(--bit3-green), var(--bit3-purple)) border-box; -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; animation: rotateBorder 8s linear infinite; }
+        @keyframes rotateBorder { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .closing-icon i { font-size: 1.8rem; background: linear-gradient(135deg, var(--bit3-green), var(--bit3-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .closing-section h3 { font-size: 1.15rem; font-weight: 600; color: #fff; margin-bottom: 15px; line-height: 1.6; }
+        .closing-section p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.8; max-width: 650px; margin: 0 auto 15px; }
+        .cta-whatsapp { display: inline-flex; align-items: center; gap: 10px; padding: 14px 32px; margin-top: 20px; background: linear-gradient(135deg, #25D366, #128C7E); border: none; border-radius: 50px; color: #fff; font-family: 'Bai Jamjuree', sans-serif; font-size: 0.95rem; font-weight: 600; text-decoration: none; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 20px rgba(37,211,102,0.25); }
+        .cta-whatsapp:hover { transform: translateY(-3px); box-shadow: 0 6px 30px rgba(37,211,102,0.35); }
+        .signature { margin-top: 30px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,0.06); }
+        .signature-name { font-size: 1rem; font-weight: 600; color: var(--bit3-green); margin-bottom: 3px; }
+        .signature-title { font-size: 0.8rem; color: var(--text-subtle); }
+
+        .footer { text-align: center; padding: 30px 0 20px; }
+        .footer-line { width: 80px; height: 1px; margin: 0 auto 20px; background: linear-gradient(90deg, transparent, rgba(0,200,150,0.3), transparent); }
+        .footer p { font-size: 0.75rem; color: var(--text-subtle); }
+
+        @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 900px) {
+            .problem-grid, .conditions-grid, .plan-features, .discount-grid { grid-template-columns: 1fr; }
+            .header { grid-template-columns: 1fr; text-align: center; }
+            .header-right { text-align: center; }
+            .meta-item { justify-content: center; }
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 20px; }
+            .header, .intro-section, .problem-section, .plan-section, .conditions-section, .closing-section { padding: 25px; }
+            .plan-price { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-wrapper">
+        <div class="bg-noise"></div>
+        <div class="bg-gradient"></div>
+        <div class="floating-orb orb-1"></div>
+        <div class="floating-orb orb-2"></div>
+    </div>
+
+    <div class="container">
+        <!-- HEADER -->
+        <header class="glass header">
+            <div class="company-info">
+                <h1>Bit3io</h1>
+                <p class="tagline">Branding, Contenido y Estrategia Digital</p>
+            </div>
+            <div class="header-right">
+                <div class="quote-badge">
+                    <i class="fas fa-mug-hot"></i>
+                    <span>Web + Posicionamiento</span>
+                </div>
+                <div class="client-name">Querido Cosmos</div>
+                <div class="client-sub">Café de Especialidad · Carrito Itinerante · Barra para Eventos</div>
+                <div class="meta-info">
+                    <div class="meta-item"><i class="fas fa-calendar"></i><span>Mayo 2026</span></div>
+                    <div class="meta-item"><i class="fas fa-clock"></i><span>Vigencia: 15 días naturales</span></div>
+                    <div class="meta-item"><i class="fas fa-user"></i><span>Ceila & Daniel</span></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- INTRO — StoryBrand -->
+        <section class="glass intro-section">
+            <h3><i class="fas fa-mug-hot"></i> Propuesta para Querido Cosmos</h3>
+            <p>
+                <span class="intro-highlight">Querido Cosmos</span> ya tiene lo más importante: un café de especialidad que vale la pena, un carrito itinerante listo para recorrer la ciudad, y un servicio de barra para eventos con todo para crecer. El café habla por sí solo.
+            </p>
+            <p>
+                Lo que hoy no está pasando es que la gente que no los conoce pueda encontrarlos. Cuando alguien busca "café de especialidad CDMX", "barra de café para eventos" o "coffee bar para bodas" en Google, Querido Cosmos no aparece. Esa búsqueda — y ese cliente — se va a quien sí tiene presencia digital.
+            </p>
+            <p>
+                Esta propuesta resuelve eso: una página web profesional que represente lo que Querido Cosmos realmente es, enlazada a una estrategia de posicionamiento que los haga visibles en Google cuando su cliente ideal esté buscando exactamente lo que ustedes ofrecen.
+            </p>
+        </section>
+
+        <!-- PAS — Problem Agitate -->
+        <div class="section-title">
+            <h2>Lo que Hoy Está Pasando</h2>
+            <div class="section-title-line"></div>
+        </div>
+
+        <section class="glass problem-section">
+            <div class="problem-grid">
+                <div class="problem-item">
+                    <div class="problem-icon"><i class="fas fa-search"></i></div>
+                    <h4>Invisibles en Google</h4>
+                    <p>Sin página web, Querido Cosmos no existe para nadie que busque café de especialidad, barra para eventos o carrito de café en CDMX. Ese tráfico orgánico se lo lleva quien sí aparece.</p>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon"><i class="fas fa-briefcase"></i></div>
+                    <h4>Eventos corporativos perdidos</h4>
+                    <p>Las empresas que buscan servicios de catering o experiencias para sus eventos investigan en Google antes de decidir. Sin sitio web con portafolio, pierden leads que ya estaban listos para contratar.</p>
+                </div>
+                <div class="problem-item">
+                    <div class="problem-icon"><i class="fas fa-share-nodes"></i></div>
+                    <h4>Dependencia total de redes sociales</h4>
+                    <p>Las redes sociales les dan alcance, pero no les pertenecen. Un cambio de algoritmo, una cuenta suspendida, y toda la visibilidad desaparece. Una página web propia es el único espacio que controlan al 100%.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PLAN ÚNICO — FAB -->
+        <div class="section-title">
+            <h2>Tu Plan</h2>
+            <div class="section-title-line"></div>
+        </div>
+
+        <section class="glass plan-section">
+            <div class="plan-header">
+                <h3>Presencia + Posicionamiento</h3>
+                <p class="plan-sub">Página web profesional + campaña SEO con 5 blogs + indexación en Google</p>
+            </div>
+            <div class="plan-price-box">
+                <div class="plan-price">$21,500 MXN</div>
+                <div class="plan-period">Proyecto único · Pago una sola vez</div>
+            </div>
+
+            <!-- BLOQUE 1: Página Web -->
+            <div class="plan-block">
+                <div class="plan-block-header">
+                    <div class="plan-block-icon green"><i class="fas fa-globe"></i></div>
+                    <div class="plan-block-title">
+                        <h4>Página Web Profesional</h4>
+                        <p>Tu vitrina digital — diseñada para convertir visitantes en clientes</p>
+                    </div>
+                </div>
+                <ul class="plan-features green">
+                    <li><strong>Landing page a la medida</strong> — concepto, galería, servicios de barra, talleres, ubicación y contacto en un solo lugar</li>
+                    <li><strong>Diseño profesional</strong> — diseño que refleja la identidad de Querido Cosmos, no un template genérico</li>
+                    <li><strong>100% responsive</strong> — se ve perfecto desde celular, tablet y computadora (80%+ de tus clientes te buscarán desde el teléfono)</li>
+                    <li><strong>Integración directa</strong> — WhatsApp, redes sociales, Google Maps. Un tap y tu cliente ya te está escribiendo o viendo cómo llegar</li>
+                    <li><strong>Sección de eventos</strong> — portafolio visual de barras corporativas y sociales para que el cliente vea lo que van a recibir</li>
+                    <li><strong>Contenido actualizable</strong> — tú mismo cambias bebidas, precios y fotos desde WordPress sin depender de nadie</li>
+                </ul>
+            </div>
+
+            <!-- BLOQUE 2: Infraestructura -->
+            <div class="plan-block">
+                <div class="plan-block-header">
+                    <div class="plan-block-icon cyan"><i class="fas fa-server"></i></div>
+                    <div class="plan-block-title">
+                        <h4>Infraestructura Técnica</h4>
+                        <p>Dominio, hosting y configuración — primer año incluido</p>
+                    </div>
+                </div>
+                <ul class="plan-features cyan">
+                    <li><strong>Dominio propio</strong> — queridocosmos.mx o .com registrado a nombre de ustedes por 1 año (sujeto a disponibilidad — en caso de que el nombre exacto no esté disponible, se buscan alternativas juntos antes de registrar)</li>
+                    <li><strong>Hosting WordPress optimizado</strong> — servidor rápido con proveedor de hosting por 1 año, certificado SSL incluido (candado verde en el navegador)</li>
+                    <li><strong>Instalación y configuración completa</strong> — WordPress instalado, plugins configurados, seguridad activada, conexión dominio-hosting lista</li>
+                </ul>
+            </div>
+
+            <!-- BLOQUE 3: SEO -->
+            <div class="plan-block">
+                <div class="plan-block-header">
+                    <div class="plan-block-icon purple"><i class="fas fa-chart-line"></i></div>
+                    <div class="plan-block-title">
+                        <h4>Campaña SEO — Posicionamiento en Google</h4>
+                        <p>Que te encuentren cuando buscan lo que tú ofreces</p>
+                    </div>
+                </div>
+                <ul class="plan-features single-col purple">
+                    <li><strong>Investigación de palabras clave</strong> — identificar exactamente qué busca tu cliente ideal en Google: "café de especialidad CDMX", "barra de café para bodas", "coffee bar eventos corporativos", "carrito de café itinerante" y variantes de tu zona</li>
+                    <li><strong>5 artículos de blog optimizados para SEO</strong> — contenido estratégico diseñado para posicionar tu página en los primeros resultados. Cada blog es una puerta de entrada adicional en Google: más blogs = más formas de que gente nueva te descubra</li>
+                    <li><strong>SEO on-page avanzado con RankMath</strong> — el plugin más potente de WordPress para optimización: títulos optimizados, slugs limpios, schema markup para que Google entienda que eres un negocio local de café, interlinking entre artículos, alt text en cada imagen</li>
+                    <li><strong>Indexación completa en Google Search Console</strong> — cada página y cada blog registrado oficialmente en Google con sitemap dinámico para que el buscador los rastree y posicione lo antes posible</li>
+                    <li><strong>Vinculación con Google Business Profile existente</strong> — enlazar su perfil de Google Maps actual con la nueva página web para reforzar la presencia en búsquedas locales</li>
+                    <li><strong>Mes de evaluación post-publicación</strong> — una vez publicados los blogs, se monitorea su desempeño durante 30 días para identificar áreas de oportunidad dentro del nicho y ajustar la estrategia según los datos reales</li>
+                </ul>
+            </div>
+
+            <!-- POR QUÉ BLOGS -->
+            <div style="background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.12); border-radius: 14px; padding: 20px; margin-top: 10px;">
+                <p style="font-size: 0.82rem; color: var(--bit3-purple); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-lightbulb"></i> ¿Por qué 5 blogs y no solo la página?</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px;">Una landing page sola compite por 2-3 palabras clave. Cada blog es una puerta de entrada adicional en Google — 5 blogs = 5 puertas más para que gente nueva los descubra buscando cosas como "mejores cafés de especialidad en la Roma", "qué es un flat white" o "barra de café para mi boda".</p>
+                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px;">Google premia sitios que publican contenido útil. Un blog activo le dice a Google: "este sitio está vivo, muéstralo más".</p>
+                <p style="font-size: 0.8rem; color: var(--bit3-purple); line-height: 1.7; font-weight: 500;"><i class="fas fa-clock" style="margin-right: 5px;"></i> Es importante tener en cuenta que el posicionamiento orgánico en Google no es inmediato — es un proceso que requiere tiempo y constancia para cosechar resultados. Los blogs se publican, se indexan, y Google comienza a evaluarlos. Los resultados se construyen semana a semana, no de la noche a la mañana.</p>
+            </div>
+        </section>
+
+
+        <!-- CONDITIONS -->
+        <section class="glass conditions-section">
+            <h3><i class="fas fa-file-contract"></i> Condiciones Comerciales</h3>
+            <div class="conditions-grid">
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-calendar-check"></i></div>
+                        <h4>Vigencia</h4>
+                    </div>
+                    <p>Esta cotización tiene una vigencia de <strong>15 días naturales</strong> a partir de la fecha de emisión.</p>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-hand-holding-usd"></i></div>
+                        <h4>Forma de Pago</h4>
+                    </div>
+                    <p><strong>50%</strong> al inicio del proyecto para arrancar desarrollo.<br><strong>25%</strong> una vez presentadas las pruebas funcionales.<br><strong>25%</strong> restante cuando el sitio entre en operación.<br><br>Método de pago: <strong>transferencia bancaria</strong>. En caso de pago en efectivo, este no podrá exceder el 30% del valor total del proyecto.</p>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-clock"></i></div>
+                        <h4>Tiempo de Entrega</h4>
+                    </div>
+                    <p>Tiempo estimado: <strong>3 a 4 semanas</strong> a partir de recibir el anticipo y los insumos necesarios (fotos, textos). El proyecto puede completarse antes del plazo dependiendo de la disponibilidad de materiales.</p>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-file-invoice"></i></div>
+                        <h4>Facturación</h4>
+                    </div>
+                    <p>Los precios presentados son <strong>antes de IVA</strong>. En caso de no requerir factura, el IVA no se incluye en el monto total.</p>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>Dominio y Hosting</h4>
+                    </div>
+                    <p>El registro del dominio y el hosting incluidos en esta propuesta cubren <strong>el primer año completo</strong> — tanto la contratación como la protección del nombre corren por nuestra cuenta durante ese periodo. A partir del segundo año, la renovación queda a cargo del cliente para mantener el sitio activo y el dominio protegido.</p>
+                </div>
+                <div class="condition-card">
+                    <div class="condition-card-header">
+                        <div class="condition-icon"><i class="fas fa-check-circle"></i></div>
+                        <h4>Aceptación</h4>
+                    </div>
+                    <p>Para aceptar esta propuesta, confirma vía WhatsApp directamente con tu asesor.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CLOSING — StoryBrand -->
+        <section class="glass closing-section">
+            <div class="closing-icon">
+                <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Querido Cosmos ya tiene el café, el carrito, la barra y los clientes que regresan. Solo falta que los encuentre la gente que todavía no sabe que existen.</h3>
+            <p>
+                Cualquier duda o ajuste, estamos a un mensaje.
+            </p>
+            <a href="https://wa.link/694nn8" target="_blank" class="cta-whatsapp">
+                <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
+            </a>
+            <div class="signature">
+                <div class="signature-name">Valentin Blas</div>
+                <div class="signature-title">Bit3io — Branding, Contenido y Estrategia Digital</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-line"></div>
+            <p>Bit3io | 2026</p>
+        </footer>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) { entry.target.style.opacity = '1'; entry.target.style.transform = 'translateY(0)'; }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+        document.querySelectorAll('.glass, .section-title').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
