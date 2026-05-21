@@ -1,9 +1,10 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización Web + SEO — Querido Cosmos | Bit3io</title>
+    <title>Cotización Web — Querido Cosmos | Bit3io</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -171,6 +172,7 @@
             .header { grid-template-columns: 1fr; text-align: center; }
             .header-right { text-align: center; }
             .meta-item { justify-content: center; }
+            [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 600px) {
             .container { padding: 30px 20px; }
@@ -197,7 +199,7 @@
             <div class="header-right">
                 <div class="quote-badge">
                     <i class="fas fa-mug-hot"></i>
-                    <span>Web + Posicionamiento</span>
+                    <span>Desarrollo Web</span>
                 </div>
                 <div class="client-name">Querido Cosmos</div>
                 <div class="client-sub">Café de Especialidad · Carrito Itinerante · Barra para Eventos</div>
@@ -219,7 +221,7 @@
                 Lo que hoy no está pasando es que la gente que no los conoce pueda encontrarlos. Cuando alguien busca "café de especialidad CDMX", "barra de café para eventos" o "coffee bar para bodas" en Google, Querido Cosmos no aparece. Esa búsqueda — y ese cliente — se va a quien sí tiene presencia digital.
             </p>
             <p>
-                Esta propuesta resuelve eso: una página web profesional que represente lo que Querido Cosmos realmente es, enlazada a una estrategia de posicionamiento que los haga visibles en Google cuando su cliente ideal esté buscando exactamente lo que ustedes ofrecen.
+                Esta propuesta resuelve eso: una página web profesional que represente lo que Querido Cosmos realmente es, con todo lo necesario para que tengan presencia digital propia y sus clientes los encuentren.
             </p>
         </section>
 
@@ -249,84 +251,73 @@
             </div>
         </section>
 
-        <!-- PLAN ÚNICO — FAB -->
+        <!-- PLANES — FAB -->
         <div class="section-title">
             <h2>Tu Plan</h2>
             <div class="section-title-line"></div>
         </div>
 
-        <section class="glass plan-section">
-            <div class="plan-header">
-                <h3>Presencia + Posicionamiento</h3>
-                <p class="plan-sub">Página web profesional + campaña SEO con 5 blogs + indexación en Google</p>
-            </div>
-            <div class="plan-price-box">
-                <div class="plan-price">$21,500 MXN</div>
-                <div class="plan-period">Proyecto único · Pago una sola vez</div>
-            </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-bottom: 40px; animation: fadeSlideUp 0.8s ease-out 0.3s both;">
 
-            <!-- BLOQUE 1: Página Web -->
-            <div class="plan-block">
-                <div class="plan-block-header">
-                    <div class="plan-block-icon green"><i class="fas fa-globe"></i></div>
-                    <div class="plan-block-title">
-                        <h4>Página Web Profesional</h4>
-                        <p>Tu vitrina digital — diseñada para convertir visitantes en clientes</p>
-                    </div>
+            <!-- OPCIÓN 1: LANDING -->
+            <section class="glass" style="padding: 30px;">
+                <div style="margin-bottom: 20px;">
+                    <div class="plan-block-icon green" style="margin-bottom: 15px;"><i class="fas fa-globe"></i></div>
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Landing Page</h4>
+                    <p style="font-size: 0.72rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Tu vitrina digital en una sola página</p>
+                    <div style="font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, var(--bit3-green), var(--bit3-green-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 3px;">$10,000 MXN</div>
+                    <p style="font-size: 0.7rem; color: var(--text-subtle);">Proyecto único · Pago una sola vez</p>
                 </div>
-                <ul class="plan-features green">
-                    <li><strong>Landing page a la medida</strong> — concepto, galería, servicios de barra, talleres, ubicación y contacto en un solo lugar</li>
-                    <li><strong>Diseño profesional</strong> — diseño que refleja la identidad de Querido Cosmos, no un template genérico</li>
-                    <li><strong>100% responsive</strong> — se ve perfecto desde celular, tablet y computadora (80%+ de tus clientes te buscarán desde el teléfono)</li>
+
+                <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0;"></div>
+                <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bit3-green); margin-bottom: 12px;">Página Web</p>
+                <ul class="plan-features single-col green">
+                    <li><strong>Página en una sola sección</strong> — concepto, galería, servicios de barra, talleres, ubicación y contacto en un solo lugar</li>
+                    <li><strong>Diseño profesional a la medida</strong> — diseño que refleja la identidad de Querido Cosmos, no un template genérico</li>
+                    <li><strong>100% responsive</strong> — se ve perfecto desde celular, tablet y computadora</li>
                     <li><strong>Integración directa</strong> — WhatsApp, redes sociales, Google Maps. Un tap y tu cliente ya te está escribiendo o viendo cómo llegar</li>
-                    <li><strong>Sección de eventos</strong> — portafolio visual de barras corporativas y sociales para que el cliente vea lo que van a recibir</li>
-                    <li><strong>Contenido actualizable</strong> — tú mismo cambias bebidas, precios y fotos desde WordPress sin depender de nadie</li>
+                    <li><strong>Contenido actualizable</strong> — tú mismo cambias información y fotos desde WordPress sin depender de nadie</li>
+                    <li><strong>Capacitación incluida</strong> — te enseñamos a usar tu panel para que puedas hacer cambios por tu cuenta</li>
                 </ul>
-            </div>
 
-            <!-- BLOQUE 2: Infraestructura -->
-            <div class="plan-block">
-                <div class="plan-block-header">
-                    <div class="plan-block-icon cyan"><i class="fas fa-server"></i></div>
-                    <div class="plan-block-title">
-                        <h4>Infraestructura Técnica</h4>
-                        <p>Dominio, hosting y configuración — primer año incluido</p>
-                    </div>
-                </div>
-                <ul class="plan-features cyan">
+                <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0;"></div>
+                <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bit3-cyan); margin-bottom: 12px;">Infraestructura técnica (1er año incluido)</p>
+                <ul class="plan-features single-col cyan">
                     <li><strong>Dominio propio</strong> — queridocosmos.mx o .com registrado a nombre de ustedes por 1 año (sujeto a disponibilidad — en caso de que el nombre exacto no esté disponible, se buscan alternativas juntos antes de registrar)</li>
                     <li><strong>Hosting WordPress optimizado</strong> — servidor rápido con proveedor de hosting por 1 año, certificado SSL incluido (candado verde en el navegador)</li>
                     <li><strong>Instalación y configuración completa</strong> — WordPress instalado, plugins configurados, seguridad activada, conexión dominio-hosting lista</li>
                 </ul>
-            </div>
+            </section>
 
-            <!-- BLOQUE 3: SEO -->
-            <div class="plan-block">
-                <div class="plan-block-header">
-                    <div class="plan-block-icon purple"><i class="fas fa-chart-line"></i></div>
-                    <div class="plan-block-title">
-                        <h4>Campaña SEO — Posicionamiento en Google</h4>
-                        <p>Que te encuentren cuando buscan lo que tú ofreces</p>
-                    </div>
+            <!-- OPCIÓN 2: WEB COMPLETA -->
+            <section class="glass" style="padding: 30px; border: 2px solid rgba(139,92,246,0.2); box-shadow: 0 0 30px rgba(139,92,246,0.06);">
+                <div style="margin-bottom: 20px;">
+                    <div style="display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; margin-bottom: 12px; background: linear-gradient(135deg, rgba(139,92,246,0.15), rgba(6,182,212,0.1)); border: 1px solid rgba(139,92,246,0.3); border-radius: 20px; font-size: 0.65rem; font-weight: 600; color: var(--bit3-purple); text-transform: uppercase; letter-spacing: 1px;"><i class="fas fa-star"></i> Recomendado</div>
+                    <div class="plan-block-icon purple" style="margin-bottom: 15px;"><i class="fas fa-rocket"></i></div>
+                    <h4 style="font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 4px;">Web Completa</h4>
+                    <p style="font-size: 0.72rem; color: var(--text-subtle); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 15px;">Sitio multi-página con blog listo para crecer</p>
+                    <div style="font-size: 1.8rem; font-weight: 800; background: linear-gradient(135deg, var(--bit3-purple), #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 3px;">$15,000 MXN</div>
+                    <p style="font-size: 0.7rem; color: var(--text-subtle);">Proyecto único · Pago una sola vez</p>
                 </div>
-                <ul class="plan-features single-col purple">
-                    <li><strong>Investigación de palabras clave</strong> — identificar exactamente qué busca tu cliente ideal en Google: "café de especialidad CDMX", "barra de café para bodas", "coffee bar eventos corporativos", "carrito de café itinerante" y variantes de tu zona</li>
-                    <li><strong>5 artículos de blog optimizados para SEO</strong> — contenido estratégico diseñado para posicionar tu página en los primeros resultados. Cada blog es una puerta de entrada adicional en Google: más blogs = más formas de que gente nueva te descubra</li>
-                    <li><strong>SEO on-page avanzado con RankMath</strong> — el plugin más potente de WordPress para optimización: títulos optimizados, slugs limpios, schema markup para que Google entienda que eres un negocio local de café, interlinking entre artículos, alt text en cada imagen</li>
-                    <li><strong>Indexación completa en Google Search Console</strong> — cada página y cada blog registrado oficialmente en Google con sitemap dinámico para que el buscador los rastree y posicione lo antes posible</li>
-                    <li><strong>Vinculación con Google Business Profile existente</strong> — enlazar su perfil de Google Maps actual con la nueva página web para reforzar la presencia en búsquedas locales</li>
-                    <li><strong>Mes de evaluación post-publicación</strong> — una vez publicados los blogs, se monitorea su desempeño durante 30 días para identificar áreas de oportunidad dentro del nicho y ajustar la estrategia según los datos reales</li>
-                </ul>
-            </div>
 
-            <!-- POR QUÉ BLOGS -->
-            <div style="background: rgba(139,92,246,0.05); border: 1px solid rgba(139,92,246,0.12); border-radius: 14px; padding: 20px; margin-top: 10px;">
-                <p style="font-size: 0.82rem; color: var(--bit3-purple); font-weight: 600; margin-bottom: 8px;"><i class="fas fa-lightbulb"></i> ¿Por qué 5 blogs y no solo la página?</p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px;">Una landing page sola compite por 2-3 palabras clave. Cada blog es una puerta de entrada adicional en Google — 5 blogs = 5 puertas más para que gente nueva los descubra buscando cosas como "mejores cafés de especialidad en la Roma", "qué es un flat white" o "barra de café para mi boda".</p>
-                <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.7; margin-bottom: 8px;">Google premia sitios que publican contenido útil. Un blog activo le dice a Google: "este sitio está vivo, muéstralo más".</p>
-                <p style="font-size: 0.8rem; color: var(--bit3-purple); line-height: 1.7; font-weight: 500;"><i class="fas fa-clock" style="margin-right: 5px;"></i> Es importante tener en cuenta que el posicionamiento orgánico en Google no es inmediato — es un proceso que requiere tiempo y constancia para cosechar resultados. Los blogs se publican, se indexan, y Google comienza a evaluarlos. Los resultados se construyen semana a semana, no de la noche a la mañana.</p>
-            </div>
-        </section>
+                <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0;"></div>
+                <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bit3-purple); margin-bottom: 12px;">Todo lo de la Landing Page +</p>
+                <ul class="plan-features single-col purple">
+                    <li><strong>Sitio multi-página completo</strong> — Home, Nosotros, Servicios, Blog, Contacto, Aviso de Privacidad y Página de Error (404)</li>
+                    <li><strong>Cada sección con su propio espacio</strong> — en vez de comprimir todo en una página, cada área del negocio tiene el espacio que necesita para comunicar su valor</li>
+                    <li><strong>Sección de blog lista</strong> — estructura preparada para que cuando quieran publicar contenido y empezar a posicionarse en Google, solo sea cuestión de escribir y publicar</li>
+                    <li><strong>Indexación básica en Google</strong> — sitio registrado en Google Search Console con sitemap para que el buscador sepa que existe y comience a rastrearlo</li>
+                </ul>
+
+                <div style="height: 1px; background: rgba(255,255,255,0.06); margin: 20px 0;"></div>
+                <p style="font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--bit3-cyan); margin-bottom: 12px;">Infraestructura técnica (1er año incluido)</p>
+                <ul class="plan-features single-col cyan">
+                    <li><strong>Dominio propio</strong> — queridocosmos.mx o .com registrado a nombre de ustedes por 1 año (sujeto a disponibilidad — en caso de que el nombre exacto no esté disponible, se buscan alternativas juntos antes de registrar)</li>
+                    <li><strong>Hosting WordPress optimizado</strong> — servidor rápido con proveedor de hosting por 1 año, certificado SSL incluido (candado verde en el navegador)</li>
+                    <li><strong>Instalación y configuración completa</strong> — WordPress instalado, plugins configurados, seguridad activada, conexión dominio-hosting lista</li>
+                </ul>
+            </section>
+        </div>
 
 
         <!-- CONDITIONS -->
@@ -352,7 +343,7 @@
                         <div class="condition-icon"><i class="fas fa-clock"></i></div>
                         <h4>Tiempo de Entrega</h4>
                     </div>
-                    <p>Tiempo estimado: <strong>3 a 4 semanas</strong> a partir de recibir el anticipo y los insumos necesarios (fotos, textos). El proyecto puede completarse antes del plazo dependiendo de la disponibilidad de materiales.</p>
+                    <p><strong>Landing Page:</strong> 1-2 semanas.<br><strong>Web Completa:</strong> 2-3 semanas.<br>El proyecto puede completarse antes del plazo dependiendo de la disponibilidad de materiales (fotos, textos).</p>
                 </div>
                 <div class="condition-card">
                     <div class="condition-card-header">
@@ -383,9 +374,9 @@
             <div class="closing-icon">
                 <i class="fas fa-handshake"></i>
             </div>
-            <h3>Querido Cosmos ya tiene el café, el carrito, la barra y los clientes que regresan. Solo falta que los encuentre la gente que todavía no sabe que existen.</h3>
+            <h3>Querido Cosmos ya tiene el café, el carrito y la barra. Solo falta que los encuentre la gente que todavía no sabe que existen.</h3>
             <p>
-                Cualquier duda o ajuste, estamos a un mensaje.
+                Elige la opción que haga más sentido para donde están hoy. Cualquier duda o ajuste, estamos a un mensaje.
             </p>
             <a href="https://wa.link/694nn8" target="_blank" class="cta-whatsapp">
                 <i class="fab fa-whatsapp"></i> Contactar por WhatsApp
